@@ -1,0 +1,6 @@
+#!/bin/sh
+echo open-read-close
+node open-read-close
+echo channel-numbers
+node channel-numbers
+
