@@ -20,11 +20,11 @@ npm install mcp-spi-adc
 Determine the temperature using a TMP36 analog temperature sensor wired to
 channel 5 on an MCP3008 SPI A/D converter.
 
+<img src="https://raw.githubusercontent.com/fivdi/mcp-spi-adc/master/example/pi-mcp3008-tmp36.png">
+
 Note how the speedHz option is used to configure the bitrate in Hertz for
 reading the value from the TMP36 temperature sensor. The default bitrate is
 1350000 but lowering it to 20000 gives a more acurate temperature reading.
-
-<img src="https://raw.githubusercontent.com/fivdi/mcp-spi-adc/master/example/pi-mcp3008-tmp36.png">
 
 ```js
 var mcpadc = require('mcp-spi-adc');
