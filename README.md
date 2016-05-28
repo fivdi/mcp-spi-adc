@@ -22,10 +22,6 @@ channel 5 on an MCP3008 SPI A/D converter.
 
 <img src="https://raw.githubusercontent.com/fivdi/mcp-spi-adc/master/example/pi-mcp3008-tmp36.png">
 
-Note how the speedHz option is used to configure the bitrate in Hertz for
-reading the value from the TMP36 temperature sensor. The default bitrate is
-1350000 but lowering it to 20000 gives a more acurate temperature reading.
-
 ```js
 var mcpadc = require('mcp-spi-adc');
 
@@ -41,6 +37,10 @@ var tempSensor = mcpadc.open(5, {speedHz: 20000}, function (err) {
   }, 1000);
 });
 ```
+
+Note how the speedHz option is used to configure the bitrate in Hertz for
+reading the value from the TMP36 temperature sensor. The default bitrate is
+1350000 but lowering it to 20000 gives a more acurate temperature reading.
 
 ## API documentation
 
