@@ -1,7 +1,7 @@
 ## mcp-spi-adc
 
-MCP3008 SPI A/D converter driver for **Node.js** on Linux boards like the
-Raspberry Pi Zero, 1, 2, or 3.
+MCP3008 SPI analog to digital conversion with **Node.js** on Linux boards like
+the Raspberry Pi Zero, 1, 2, or 3.
 
 ## Contents
 
