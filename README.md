@@ -40,7 +40,7 @@ var tempSensor = mcpadc.open(5, {speedHz: 20000}, function (err) {
 
 Note how the optional configuration option speedHz is used to configure the
 SPI clock frequency in Hertz for reading the value from the TMP36 temperature
-sensor. The default SPI clock frequency is 1350000 but lowering it to 20000
+sensor. The default SPI clock frequency is 1350000Hz but lowering it to 20000Hz
 gives a more acurate temperature reading.
 
 ## API documentation
