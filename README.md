@@ -39,9 +39,9 @@ var tempSensor = mcpadc.open(5, {speedHz: 20000}, function (err) {
 ```
 
 Note how the optional configuration option speedHz is used to configure the
-bitrate in Hertz for reading the value from the TMP36 temperature sensor. The
-default bitrate is 1350000 but lowering it to 20000 gives a more acurate
-temperature reading.
+SPI clock frequency in Hertz for reading the value from the TMP36 temperature
+sensor. The default SPI clock frequency is 1350000 but lowering it to 20000
+gives a more acurate temperature reading.
 
 ## API documentation
 
@@ -75,7 +75,8 @@ The following channel configuration options are supported:
 1 for `/dev/spidev1.n`, ..., default 0
 - deviceNumber - the SPI device number of the MCP3008, 0 for `/dev/spidevn.0`,
 1 for `/dev/spidevn.1`, ..., default 0
-- speedHz - a number representing the channel bitrate in Hertz, default 1350000
+- speedHz - a number representing the SPI clock frequency for reading from the
+channel in Hertz, default 1350000
 
 ### adcChannel.read(cb)
 - cb - completion callback
