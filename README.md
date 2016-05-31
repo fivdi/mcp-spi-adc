@@ -1,7 +1,7 @@
 ## mcp-spi-adc
 
 MCP3008 SPI analog to digital conversion with **Node.js** on Linux boards like
-the Raspberry Pi Zero, 1, 2, or 3.
+the Raspberry Pi Zero, 1, 2, or 3 or BeagleBone Black.
 
 ## Contents
 
@@ -41,7 +41,14 @@ var tempSensor = mcpadc.open(5, {speedHz: 20000}, function (err) {
 Note how the optional configuration option speedHz is used to configure the
 SPI clock frequency in Hertz for reading the value from the TMP36 temperature
 sensor. The default SPI clock frequency is 1350000Hz but lowering it to 20000Hz
-gives a more acurate temperature reading.
+gives a more acurate temperature reading. In general, it's not necessary to
+lower the clock speed to read a value from the MCP3008.
+
+The default clock speed of 1350000Hz is derived from the
+[MCP3008 datasheet](https://cdn-shop.adafruit.com/datasheets/MCP3008.pdf).
+The maximum sampling rate at VDD = 2.7V is 75 ksps and each sample requires
+an 18-bit transfer. 75000 x 18 = 1350000. 1350000Hz is a conservative frequency
+in the above circuit as VDD is 3.3V.
 
 ## API documentation
 
