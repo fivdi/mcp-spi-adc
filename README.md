@@ -71,22 +71,24 @@ or undefined.
 
 ### Functions
 
-- [open(channel[, options], cb) - alias for openMcp3008(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openchannel-options-cb---alias-for-openmcp3008channel-options-cb)
 - [openMcp3004(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openmcp3004channel-options-cb)
 - [openMcp3008(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openmcp3008channel-options-cb)
 - [openMcp3204(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openmcp3204channel-options-cb)
 - [openMcp3208(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openmcp3208channel-options-cb)
+- [open(channel[, options], cb) - alias for openMcp3008(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openchannel-options-cb---alias-for-openmcp3008channel-options-cb)
 
 ### Class AdcChannel
 
 - [adcChannel.read(cb)](https://github.com/fivdi/mcp-spi-adc#adcchannelreadcb)
 - [adcChannel.close(cb)](https://github.com/fivdi/mcp-spi-adc#adcchannelclosecb)
 
-### open(channel[, options], cb) - alias for openMcp3008(channel[, options], cb)
+### openMcp3004(channel[, options], cb)
 ### openMcp3008(channel[, options], cb)
+### openMcp3204(channel[, options], cb)
 ### openMcp3208(channel[, options], cb)
+### open(channel[, options], cb) - alias for openMcp3008(channel[, options], cb)
 - channel - the number of the channel to open, see channel numbers in
-[Supported devices](https://github.com/fivdi/mcp-spi-adc#supported-devices)
+[supported devices](https://github.com/fivdi/mcp-spi-adc#supported-devices)
 - options - an optional object specifying channel configuration options
 - cb - completion callback
 
@@ -102,7 +104,7 @@ The following channel configuration options are supported:
 1 for `/dev/spidevn.1`, ..., default 0
 - speedHz - a number representing the SPI clock frequency for reading from the
 channel in Hertz, see default clock frequency in
-[Supported devices](https://github.com/fivdi/mcp-spi-adc#supported-devices)
+[supported devices](https://github.com/fivdi/mcp-spi-adc#supported-devices)
 
 ### adcChannel.read(cb)
 - cb - completion callback
@@ -112,7 +114,7 @@ reading). The reading argument is an object with the following properties:
 
 - value - the value read from the channel scaled to a value between 0 and 1
 - rawValue - the value read from the channel, see raw value range in
-[Supported devices](https://github.com/fivdi/mcp-spi-adc#supported-devices)
+[supported devices](https://github.com/fivdi/mcp-spi-adc#supported-devices)
 
 Returns this.
 
