@@ -58,8 +58,8 @@ Device | Channels | Channel Numbers | Default Clock Frequency | Resolution | Raw
 :---: | ---: | ---: | ---: | ---: | ---:
 MCP3004 | 4 | 0-3 | 1350000Hz | 10-bit | 0-1023
 MCP3008 | 8 | 0-7 | 1350000Hz | 10-bit | 0-1023
-MCP3004 | 4 | 0-3 | 1000000Hz | 12-bit | 0-4095
-MCP3008 | 8 | 0-7 | 1000000Hz | 12-bit | 0-4095
+MCP3204 | 4 | 0-3 | 1000000Hz | 12-bit | 0-4095
+MCP3208 | 8 | 0-7 | 1000000Hz | 12-bit | 0-4095
 
 ## API documentation
 
