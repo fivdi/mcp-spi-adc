@@ -1,5 +1,5 @@
-Unpublished
-===========
+0.2.0 / Oct 02 2016
+===================
 
  * MCP3004 support
  * MCP3204 support
