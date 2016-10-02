@@ -1,7 +1,7 @@
 {
   "name": "mcp-spi-adc",
   "version": "0.2.1",
-  "description": "MCP3004, MCP3008, MCP3204, and MCP3208 SPI analog to digital conversion",
+  "description": "MCP3002/4/8 and MCP3202/4/8 SPI analog to digital conversion",
   "main": "mcp-spi-adc.js",
   "directories": {
     "example": "example",
@@ -32,8 +32,10 @@
     "adc",
     "mcp3208",
     "mcp3204",
+    "mcp3202",
     "mcp3008",
-    "mcp3004"
+    "mcp3004",
+    "mcp3002"
   ],
   "author": "fivdi",
   "license": "MIT"

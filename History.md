@@ -1,3 +1,9 @@
+Unpublished
+===========
+
+ * MCP3002 support
+ * MCP3202 support
+
 0.2.1 / Oct 02 2016
 ===================
 

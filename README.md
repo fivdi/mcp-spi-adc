@@ -1,8 +1,7 @@
 ## mcp-spi-adc
 
-MCP3004, MCP3008, MCP3204, and MCP3208 SPI analog to digital conversion with
-**Node.js** on Linux boards like the Raspberry Pi Zero, 1, 2, or 3 or
-BeagleBone Black.
+MCP3002/4/8 and MCP3202/4/8 SPI analog to digital conversion with **Node.js**
+on Linux boards like the Raspberry Pi Zero, 1, 2, or 3 or BeagleBone Black.
 
 ## Contents
 
@@ -56,8 +55,10 @@ in the above circuit as VDD is 3.3V.
 
 Device | Channels | Channel Numbers | Default Clock Frequency | Resolution | Raw Value Range
 :---: | ---: | ---: | ---: | ---: | ---:
+MCP3002 | 2 | 0-1 | 1200000Hz | 10-bit | 0-1023
 MCP3004 | 4 | 0-3 | 1350000Hz | 10-bit | 0-1023
 MCP3008 | 8 | 0-7 | 1350000Hz | 10-bit | 0-1023
+MCP3202 | 2 | 0-1 | 900000Hz | 12-bit | 0-4095
 MCP3204 | 4 | 0-3 | 1000000Hz | 12-bit | 0-4095
 MCP3208 | 8 | 0-7 | 1000000Hz | 12-bit | 0-4095
 
@@ -71,8 +72,10 @@ or undefined.
 
 ### Functions
 
+- [openMcp3002(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openmcp3002channel-options-cb)
 - [openMcp3004(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openmcp3004channel-options-cb)
 - [openMcp3008(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openmcp3008channel-options-cb)
+- [openMcp3202(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openmcp3202channel-options-cb)
 - [openMcp3204(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openmcp3204channel-options-cb)
 - [openMcp3208(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openmcp3208channel-options-cb)
 - [open(channel[, options], cb) - alias for openMcp3008(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openchannel-options-cb---alias-for-openmcp3008channel-options-cb)
@@ -82,8 +85,10 @@ or undefined.
 - [adcChannel.read(cb)](https://github.com/fivdi/mcp-spi-adc#adcchannelreadcb)
 - [adcChannel.close(cb)](https://github.com/fivdi/mcp-spi-adc#adcchannelclosecb)
 
+### openMcp3002(channel[, options], cb)
 ### openMcp3004(channel[, options], cb)
 ### openMcp3008(channel[, options], cb)
+### openMcp3202(channel[, options], cb)
 ### openMcp3204(channel[, options], cb)
 ### openMcp3208(channel[, options], cb)
 ### open(channel[, options], cb) - alias for openMcp3008(channel[, options], cb)
