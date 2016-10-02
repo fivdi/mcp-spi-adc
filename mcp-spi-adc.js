@@ -3,7 +3,7 @@
 var spi = require('spi-device'),
   _ = require('lodash');
 
-var CONFIG_MCP3008 = {
+var CONFIG_MCP3008 = Object.freeze({
   channelCount: 8,
   maxRawValue: 1023,
   defaultSpeedHz: 1350000, // See MCP3008 datasheet. 75000 * 18 = 1350000.
@@ -14,10 +14,13 @@ var CONFIG_MCP3008 = {
   rawValue: function (buffer) {
     return ((buffer[1] & 0x03) << 8) + buffer[2];
   }
-}
-Object.freeze(CONFIG_MCP3008);
+});
 
-var CONFIG_MCP3208 = {
+var CONFIG_MCP3004 = _.clone(CONFIG_MCP3008);
+CONFIG_MCP3004.channelCount = 4;
+Object.freeze(CONFIG_MCP3004);
+
+var CONFIG_MCP3208 = Object.freeze({
   channelCount: 8,
   maxRawValue: 4095,
   defaultSpeedHz: 1000000, // See MCP3208 datasheet. 50000 * 20 = 1000000.
@@ -28,8 +31,11 @@ var CONFIG_MCP3208 = {
   rawValue: function (buffer) {
     return ((buffer[1] & 0x0f) << 8) + buffer[2];
   }
-}
-Object.freeze(CONFIG_MCP3208);
+});
+
+var CONFIG_MCP3204 = _.clone(CONFIG_MCP3208);
+CONFIG_MCP3204.channelCount = 4;
+Object.freeze(CONFIG_MCP3204);
 
 function AdcChannel(config, channel, options, cb) {
   if (!(this instanceof AdcChannel)) {
@@ -83,11 +89,18 @@ AdcChannel.prototype.close = function (cb) {
   return null;
 }
 
+module.exports.openMcp3004 = function (channel, options, cb) {
+  return new AdcChannel(CONFIG_MCP3004, channel, options, cb);
+};
+
 module.exports.openMcp3008 = function (channel, options, cb) {
   return new AdcChannel(CONFIG_MCP3008, channel, options, cb);
 };
-
 module.exports.open = module.exports.openMcp3008;
+
+module.exports.openMcp3204 = function (channel, options, cb) {
+  return new AdcChannel(CONFIG_MCP3204, channel, options, cb);
+};
 
 module.exports.openMcp3208 = function (channel, options, cb) {
   return new AdcChannel(CONFIG_MCP3208, channel, options, cb);

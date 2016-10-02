@@ -1,12 +1,14 @@
 ## mcp-spi-adc
 
-MCP3008 and MCP3208 SPI analog to digital conversion with **Node.js** on Linux
-boards like the Raspberry Pi Zero, 1, 2, or 3 or BeagleBone Black.
+MCP3004, MCP3008, MCP3204, and MCP3208 SPI analog to digital conversion with
+**Node.js** on Linux boards like the Raspberry Pi Zero, 1, 2, or 3 or
+BeagleBone Black.
 
 ## Contents
 
  * [Installation](https://github.com/fivdi/mcp-spi-adc#installation)
  * [Usage](https://github.com/fivdi/mcp-spi-adc#usage)
+ * [Supported devices](https://github.com/fivdi/mcp-spi-adc#supported-devices)
  * [API documentation](https://github.com/fivdi/mcp-spi-adc#api-documentation)
 
 ## Installation
@@ -50,7 +52,14 @@ The maximum sampling rate at VDD = 2.7V is 75 ksps and each sample requires
 an 18-bit transfer. 75000 x 18 = 1350000. 1350000Hz is a conservative frequency
 in the above circuit as VDD is 3.3V.
 
-The default clock speed for the MCP3208 is 1000000Hz.
+## Supported devices
+
+Device | Channels | Channel Numbers | Default Clock Frequency | Resolution | Raw Value Range
+:---: | ---: | ---: | ---: | ---: | ---:
+MCP3004 | 4 | 0-3 | 1350000Hz | 10-bit | 0-1023
+MCP3008 | 8 | 0-7 | 1350000Hz | 10-bit | 0-1023
+MCP3004 | 4 | 0-3 | 1000000Hz | 12-bit | 0-4095
+MCP3008 | 8 | 0-7 | 1000000Hz | 12-bit | 0-4095
 
 ## API documentation
 
@@ -63,7 +72,9 @@ or undefined.
 ### Functions
 
 - [open(channel[, options], cb) - alias for openMcp3008(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openchannel-options-cb---alias-for-openmcp3008channel-options-cb)
+- [openMcp3004(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openmcp3004channel-options-cb)
 - [openMcp3008(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openmcp3008channel-options-cb)
+- [openMcp3204(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openmcp3204channel-options-cb)
 - [openMcp3208(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openmcp3208channel-options-cb)
 
 ### Class AdcChannel
@@ -74,7 +85,8 @@ or undefined.
 ### open(channel[, options], cb) - alias for openMcp3008(channel[, options], cb)
 ### openMcp3008(channel[, options], cb)
 ### openMcp3208(channel[, options], cb)
-- channel - the number of the channel to open, 0 through 7
+- channel - the number of the channel to open, see channel numbers in
+[Supported devices](https://github.com/fivdi/mcp-spi-adc#supported-devices)
 - options - an optional object specifying channel configuration options
 - cb - completion callback
 
@@ -89,8 +101,8 @@ The following channel configuration options are supported:
 - deviceNumber - the SPI device number, 0 for `/dev/spidevn.0`,
 1 for `/dev/spidevn.1`, ..., default 0
 - speedHz - a number representing the SPI clock frequency for reading from the
-channel in Hertz, default 1350000 for the MCP3008, default 1000000 for the
-MCP3208
+channel in Hertz, see default clock frequency in
+[Supported devices](https://github.com/fivdi/mcp-spi-adc#supported-devices)
 
 ### adcChannel.read(cb)
 - cb - completion callback
@@ -99,8 +111,8 @@ Asynchronous read. The completion callback gets two arguments (err,
 reading). The reading argument is an object with the following properties:
 
 - value - the value read from the channel scaled to a value between 0 and 1
-- rawValue - the value read from the channel, a number between 0 and 1023 for
-the MCP3008, a number between 0 and 4095 for the MCP3208
+- rawValue - the value read from the channel, see raw value range in
+[Supported devices](https://github.com/fivdi/mcp-spi-adc#supported-devices)
 
 Returns this.
 
