@@ -1,7 +1,7 @@
 ## mcp-spi-adc
 
-MCP3008 SPI analog to digital conversion with **Node.js** on Linux boards like
-the Raspberry Pi Zero, 1, 2, or 3 or BeagleBone Black.
+MCP3008 and MCP3208 SPI analog to digital conversion with **Node.js** on Linux
+boards like the Raspberry Pi Zero, 1, 2, or 3 or BeagleBone Black.
 
 ## Contents
 
@@ -40,15 +40,17 @@ var tempSensor = mcpadc.open(5, {speedHz: 20000}, function (err) {
 
 Note how the optional configuration option speedHz is used to configure the
 SPI clock frequency in Hertz for reading the value from the TMP36 temperature
-sensor. The default SPI clock frequency is 1350000Hz but lowering it to 20000Hz
-gives a more acurate temperature reading. In general, it's not necessary to
-lower the clock speed to read a value from the MCP3008.
+sensor. The default SPI clock frequency for the MCP3008 is 1350000Hz but
+lowering it to 20000Hz gives a more acurate temperature reading. In general,
+it's not necessary to lower the clock speed to read a value.
 
-The default clock speed of 1350000Hz is derived from the
+The default clock speed of 1350000Hz for the MCP3008 is derived from the
 [MCP3008 datasheet](https://cdn-shop.adafruit.com/datasheets/MCP3008.pdf).
 The maximum sampling rate at VDD = 2.7V is 75 ksps and each sample requires
 an 18-bit transfer. 75000 x 18 = 1350000. 1350000Hz is a conservative frequency
 in the above circuit as VDD is 3.3V.
+
+The default clock speed for the MCP3208 is 1000000Hz.
 
 ## API documentation
 
@@ -60,14 +62,18 @@ or undefined.
 
 ### Functions
 
-- [open(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openchannel-options-cb)
+- open(channel[, options], cb) - alias for openMcp3008(channel[, options], cb)
+- [openMcp3008(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openmcp3008channel-options-cb)
+- [openMcp3208(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openmcp3208channel-options-cb)
 
 ### Class AdcChannel
 
 - [adcChannel.read(cb)](https://github.com/fivdi/mcp-spi-adc#adcchannelreadcb)
 - [adcChannel.close(cb)](https://github.com/fivdi/mcp-spi-adc#adcchannelclosecb)
 
-### open(channel[, options], cb)
+### open(channel[, options], cb) - alias for openMcp3008(channel[, options], cb)
+### openMcp3008(channel[, options], cb)
+### openMcp3208(channel[, options], cb)
 - channel - the number of the channel to open, 0 through 7
 - options - an optional object specifying channel configuration options
 - cb - completion callback
@@ -78,12 +84,13 @@ before the completion callback is called.
 
 The following channel configuration options are supported:
 
-- busNumber - the SPI bus number of the MCP3008, 0 for `/dev/spidev0.n`,
+- busNumber - the SPI bus number, 0 for `/dev/spidev0.n`,
 1 for `/dev/spidev1.n`, ..., default 0
-- deviceNumber - the SPI device number of the MCP3008, 0 for `/dev/spidevn.0`,
+- deviceNumber - the SPI device number, 0 for `/dev/spidevn.0`,
 1 for `/dev/spidevn.1`, ..., default 0
 - speedHz - a number representing the SPI clock frequency for reading from the
-channel in Hertz, default 1350000
+channel in Hertz, default 1350000 for the MCP3008, default 1000000 for the
+MCP3208
 
 ### adcChannel.read(cb)
 - cb - completion callback
@@ -92,7 +99,8 @@ Asynchronous read. The completion callback gets two arguments (err,
 reading). The reading argument is an object with the following properties:
 
 - value - the value read from the channel scaled to a value between 0 and 1
-- rawValue - the value read from the channel, a number between 0 and 1023
+- rawValue - the value read from the channel, a number between 0 and 1023 for
+the MCP3008, a number between 0 and 4095 for the MCP3208
 
 Returns this.
 

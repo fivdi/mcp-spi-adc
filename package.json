@@ -1,7 +1,7 @@
 {
   "name": "mcp-spi-adc",
   "version": "0.0.1",
-  "description": "MCP3008 SPI analog to digital conversion",
+  "description": "MCP3008 and MCP3208 SPI analog to digital conversion",
   "main": "mcp-spi-adc.js",
   "directories": {
     "example": "example",
@@ -18,8 +18,8 @@
     "node": ">=0.10.0"
   },
   "dependencies": {
-    "spi-device": "~0.2.1",
-    "lodash": "~4.13.1"
+    "spi-device": "~0.2.4",
+    "lodash": "~4.16.2"
   },
   "keywords": [
     "linux",
@@ -30,6 +30,7 @@
     "raspberry",
     "spi",
     "adc",
+    "mcp3208",
     "mcp3008"
   ],
   "author": "fivdi",

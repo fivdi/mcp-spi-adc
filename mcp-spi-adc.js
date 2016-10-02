@@ -3,35 +3,61 @@
 var spi = require('spi-device'),
   _ = require('lodash');
 
-var DEFAULT_OPTIONS = {
-  busNumber: 0,
-  deviceNumber: 0,
-  speedHz: 1350000 // See MCP3008 datasheet. 75000 * 18 = 1350000.
-};
-Object.freeze(DEFAULT_OPTIONS);
+var CONFIG_MCP3008 = {
+  channelCount: 8,
+  maxRawValue: 1023,
+  defaultSpeedHz: 1350000, // See MCP3008 datasheet. 75000 * 18 = 1350000.
+  transferLength: 3,
+  readChannelCommand: function (channel) {
+    return new Buffer([0x01, 0x80 + (channel << 4), 0x00]);
+  },
+  rawValue: function (buffer) {
+    return ((buffer[1] & 0x03) << 8) + buffer[2];
+  }
+}
+Object.freeze(CONFIG_MCP3008);
 
-function AdcChannel(channel, options, cb) {
+var CONFIG_MCP3208 = {
+  channelCount: 8,
+  maxRawValue: 4095,
+  defaultSpeedHz: 1000000, // See MCP3208 datasheet. 50000 * 20 = 1000000.
+  transferLength: 3,
+  readChannelCommand: function (channel) {
+    return new Buffer([0x06 + (channel >> 2), (channel & 0x03) << 6, 0x00]);
+  },
+  rawValue: function (buffer) {
+    return ((buffer[1] & 0x0f) << 8) + buffer[2];
+  }
+}
+Object.freeze(CONFIG_MCP3208);
+
+function AdcChannel(config, channel, options, cb) {
   if (!(this instanceof AdcChannel)) {
-    return new AdcChannel(channel, options, cb);
+    return new AdcChannel(config, channel, options, cb);
   }
 
-  if (!_.isInteger(channel) || channel < 0 || channel > 7) {
+  if (typeof options === 'function') {
+    cb = options;
+    options = {};
+  }
+
+  if (!_.isInteger(channel) || channel < 0 || channel > config.channelCount - 1) {
     throw RangeError('\'' + channel + '\'' + ' is not a valid channel number');
   }
 
-  this._channel = channel;
-  this._readChannelCommand = new Buffer([0x01, 0x80 + (channel << 4), 0x00]);
-  this._speedHz = options.speedHz;
-  this._device = spi.open(options.busNumber, options.deviceNumber, cb);
+  this._config = config;
+  this._readChannelCommand = config.readChannelCommand(channel);
+  this._speedHz = options.speedHz || config.defaultSpeedHz;
+  this._device = spi.open(options.busNumber || 0, options.deviceNumber || 0, cb);
 
   return this;
 }
 
 AdcChannel.prototype.read = function (cb) {
   var message = [{
-    byteLength: 3,
+    byteLength: this._config.transferLength,
     sendBuffer: this._readChannelCommand,
-    receiveBuffer: new Buffer(3),
+    receiveBuffer: new Buffer(this._config.transferLength),
     speedHz: this._speedHz
   }];
 
@@ -42,12 +68,11 @@ AdcChannel.prototype.read = function (cb) {
       return cb(err);
     }
 
-    reading.rawValue = ((message[0].receiveBuffer[1] & 0x03) << 8) +
-      message[0].receiveBuffer[2];
-    reading.value = reading.rawValue / 1023;
+    reading.rawValue = this._config.rawValue(message[0].receiveBuffer);
+    reading.value = reading.rawValue / this._config.maxRawValue;
 
     cb(null, reading);
-  });
+  }.bind(this));
 
   return this;
 }
@@ -59,15 +84,12 @@ AdcChannel.prototype.close = function (cb) {
 }
 
 module.exports.openMcp3008 = function (channel, options, cb) {
-  if (typeof options === 'function') {
-    cb = options;
-    options = undefined;
-  }
-
-  options = options ? _.defaults(options, DEFAULT_OPTIONS) : DEFAULT_OPTIONS;
-
-  return new AdcChannel(channel, options, cb)
+  return new AdcChannel(CONFIG_MCP3008, channel, options, cb);
 };
 
 module.exports.open = module.exports.openMcp3008;
+
+module.exports.openMcp3208 = function (channel, options, cb) {
+  return new AdcChannel(CONFIG_MCP3208, channel, options, cb);
+};
 
