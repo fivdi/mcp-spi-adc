@@ -62,7 +62,7 @@ or undefined.
 
 ### Functions
 
-- open(channel[, options], cb) - alias for openMcp3008(channel[, options], cb)
+- [open(channel[, options], cb) - alias for openMcp3008(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openchannel-options-cb---alias-for-openmcp3008channel-options-cb)
 - [openMcp3008(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openmcp3008channel-options-cb)
 - [openMcp3208(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openmcp3208channel-options-cb)
 
