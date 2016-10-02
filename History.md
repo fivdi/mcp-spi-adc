@@ -1,5 +1,5 @@
-Unpublished
-===========
+0.2.1 / Oct 02 2016
+===================
 
  * documentation
 
