@@ -1,5 +1,5 @@
-unpublished
-===========
+0.3.1 / Oct 03 2016
+===================
 
  * bugfix: the mcp3002 has 2 channels not 8
 

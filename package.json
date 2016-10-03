@@ -1,6 +1,6 @@
 {
   "name": "mcp-spi-adc",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "MCP3002/4/8 and MCP3202/4/8 SPI analog to digital conversion",
   "main": "mcp-spi-adc.js",
   "directories": {
