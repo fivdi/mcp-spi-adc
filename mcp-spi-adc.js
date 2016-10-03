@@ -21,7 +21,7 @@ CONFIG_MCP3004.channelCount = 4;
 Object.freeze(CONFIG_MCP3004);
 
 var CONFIG_MCP3002 = Object.freeze({
-  channelCount: 8,
+  channelCount: 2,
   maxRawValue: 1023,
   defaultSpeedHz: 1200000, // See MCP3002 datasheet. 75000 * 16 = 1200000.
   transferLength: 2,
