@@ -61,6 +61,7 @@ MCP3008 | 8 | 0-7 | 1350000Hz | 10-bit | 0-1023
 MCP3202 | 2 | 0-1 | 900000Hz | 12-bit | 0-4095
 MCP3204 | 4 | 0-3 | 1000000Hz | 12-bit | 0-4095
 MCP3208 | 8 | 0-7 | 1000000Hz | 12-bit | 0-4095
+MCP3304 | 8 | 0-7 | 2100000Hz | 13-bit | 0-4095
 
 ## API documentation
 
@@ -78,6 +79,7 @@ or undefined.
 - [openMcp3202(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openmcp3202channel-options-cb)
 - [openMcp3204(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openmcp3204channel-options-cb)
 - [openMcp3208(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openmcp3208channel-options-cb)
+- [openMcp3304(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openmcp3304channel-options-cb)
 - [open(channel[, options], cb) - alias for openMcp3008(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openchannel-options-cb---alias-for-openmcp3008channel-options-cb)
 
 ### Class AdcChannel
@@ -91,6 +93,7 @@ or undefined.
 ### openMcp3202(channel[, options], cb)
 ### openMcp3204(channel[, options], cb)
 ### openMcp3208(channel[, options], cb)
+### openMcp3304(channel[, options], cb)
 ### open(channel[, options], cb) - alias for openMcp3008(channel[, options], cb)
 - channel - the number of the channel to open, see channel numbers in
 [supported devices](https://github.com/fivdi/mcp-spi-adc#supported-devices)
