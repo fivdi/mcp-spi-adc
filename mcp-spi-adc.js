@@ -63,6 +63,19 @@ var CONFIG_MCP3202 = Object.freeze({
   }
 });
 
+var CONFIG_MCP3304 = Object.freeze({
+  channelCount: 8,
+  maxRawValue: 4095,
+  defaultSpeedHz: 2100000, // See MCP3304 datasheet. 100000 * 21 = 2100000
+  transferLength: 3,
+  readChannelCommand: function (channel) {
+    return new Buffer([((channel & 6) >> 1) + 12, (channel & 1) << 7, 0x00]);
+  },
+  rawValue: function (buffer) {
+    return ((buffer[1] & 0x0f) << 8) + buffer[2];
+  }
+});
+
 function AdcChannel(config, channel, options, cb) {
   if (!(this instanceof AdcChannel)) {
     return new AdcChannel(config, channel, options, cb);
@@ -140,3 +153,6 @@ module.exports.openMcp3208 = function (channel, options, cb) {
   return new AdcChannel(CONFIG_MCP3208, channel, options, cb);
 };
 
+module.exports.openMcp3304 = function (channel, options, cb) {
+  return new AdcChannel(CONFIG_MCP3304, channel, options, cb);
+};
