@@ -18,8 +18,8 @@
     "node": ">=0.10.0"
   },
   "dependencies": {
-    "spi-device": "~0.2.4",
-    "lodash": "~4.16.2"
+    "spi-device": "~0.2.5",
+    "lodash": "~4.17.4"
   },
   "keywords": [
     "linux",
