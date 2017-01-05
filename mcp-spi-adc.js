@@ -69,7 +69,7 @@ var CONFIG_MCP3304 = Object.freeze({
   defaultSpeedHz: 1050000, // See MCP3304 datasheet. 50000 * 21 = 1050000
   transferLength: 3,
   readChannelCommand: function (channel) {
-    return new Buffer([((channel & 6) >> 1) + 12, (channel & 1) << 7, 0x00]);
+    return new Buffer([0x0c + (channel >> 1), (channel & 0x01) << 7, 0x00]);
   },
   rawValue: function (buffer) {
     return ((buffer[1] & 0x0f) << 8) + buffer[2];
