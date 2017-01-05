@@ -1,7 +1,8 @@
 ## mcp-spi-adc
 
-MCP3002/4/8 and MCP3202/4/8 SPI analog to digital conversion with **Node.js**
-on Linux boards like the Raspberry Pi Zero, 1, 2, or 3 or BeagleBone Black.
+MCP3002/4/8, MCP3202/4/8 and MCP3304 SPI analog to digital conversion with
+**Node.js** on Linux boards like the Raspberry Pi Zero, 1, 2, or 3 or
+BeagleBone Black.
 
 ## Contents
 
