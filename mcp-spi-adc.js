@@ -66,7 +66,7 @@ var CONFIG_MCP3202 = Object.freeze({
 var CONFIG_MCP3304 = Object.freeze({
   channelCount: 8,
   maxRawValue: 4095,
-  defaultSpeedHz: 2100000, // See MCP3304 datasheet. 100000 * 21 = 2100000
+  defaultSpeedHz: 1050000, // See MCP3304 datasheet. 50000 * 21 = 1050000
   transferLength: 3,
   readChannelCommand: function (channel) {
     return new Buffer([((channel & 6) >> 1) + 12, (channel & 1) << 7, 0x00]);
