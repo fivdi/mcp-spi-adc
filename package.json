@@ -1,7 +1,7 @@
 {
   "name": "mcp-spi-adc",
   "version": "0.3.1",
-  "description": "MCP3002/4/8 and MCP3202/4/8 SPI analog to digital conversion",
+  "description": "MCP3002/4/8, MCP3202/4/8 and MCP3304 SPI analog to digital conversion",
   "main": "mcp-spi-adc.js",
   "directories": {
     "example": "example",
@@ -30,6 +30,7 @@
     "raspberry",
     "spi",
     "adc",
+    "mcp3304",
     "mcp3208",
     "mcp3204",
     "mcp3202",
