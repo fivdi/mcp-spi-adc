@@ -1,3 +1,9 @@
+Unpublished
+===========
+
+ * update dependencies (spi-device v1.0.0)
+ * document supported node versions
+
 0.4.0 / Jan 05 2017
 ===================
 
