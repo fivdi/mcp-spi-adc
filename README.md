@@ -8,10 +8,10 @@ mcp-spi-adc supports Node.js versions 0.10, 0.12, 4, 5, 6, 7, 8 and 9.
 
 ## Contents
 
- * [Installation](https://github.com/fivdi/mcp-spi-adc#installation)
- * [Usage](https://github.com/fivdi/mcp-spi-adc#usage)
- * [Supported devices](https://github.com/fivdi/mcp-spi-adc#supported-devices)
- * [API documentation](https://github.com/fivdi/mcp-spi-adc#api-documentation)
+ * [Installation](#installation)
+ * [Usage](#usage)
+ * [Supported devices](#supported-devices)
+ * [API documentation](#api-documentation)
 
 ## Installation
 
@@ -76,19 +76,19 @@ or undefined.
 
 ### Functions
 
-- [openMcp3002(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openmcp3002channel-options-cb)
-- [openMcp3004(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openmcp3004channel-options-cb)
-- [openMcp3008(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openmcp3008channel-options-cb)
-- [openMcp3202(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openmcp3202channel-options-cb)
-- [openMcp3204(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openmcp3204channel-options-cb)
-- [openMcp3208(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openmcp3208channel-options-cb)
-- [openMcp3304(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openmcp3304channel-options-cb)
-- [open(channel[, options], cb) - alias for openMcp3008(channel[, options], cb)](https://github.com/fivdi/mcp-spi-adc#openchannel-options-cb---alias-for-openmcp3008channel-options-cb)
+- [openMcp3002(channel[, options], cb)](#openmcp3002channel-options-cb)
+- [openMcp3004(channel[, options], cb)](#openmcp3004channel-options-cb)
+- [openMcp3008(channel[, options], cb)](#openmcp3008channel-options-cb)
+- [openMcp3202(channel[, options], cb)](#openmcp3202channel-options-cb)
+- [openMcp3204(channel[, options], cb)](#openmcp3204channel-options-cb)
+- [openMcp3208(channel[, options], cb)](#openmcp3208channel-options-cb)
+- [openMcp3304(channel[, options], cb)](#openmcp3304channel-options-cb)
+- [open(channel[, options], cb) - alias for openMcp3008(channel[, options], cb)](#openchannel-options-cb---alias-for-openmcp3008channel-options-cb)
 
 ### Class AdcChannel
 
-- [adcChannel.read(cb)](https://github.com/fivdi/mcp-spi-adc#adcchannelreadcb)
-- [adcChannel.close(cb)](https://github.com/fivdi/mcp-spi-adc#adcchannelclosecb)
+- [adcChannel.read(cb)](#adcchannelreadcb)
+- [adcChannel.close(cb)](#adcchannelclosecb)
 
 ### openMcp3002(channel[, options], cb)
 ### openMcp3004(channel[, options], cb)
@@ -99,7 +99,7 @@ or undefined.
 ### openMcp3304(channel[, options], cb)
 ### open(channel[, options], cb) - alias for openMcp3008(channel[, options], cb)
 - channel - the number of the channel to open, see channel numbers in
-[supported devices](https://github.com/fivdi/mcp-spi-adc#supported-devices)
+[supported devices](#supported-devices)
 - options - an optional object specifying channel configuration options
 - cb - completion callback
 
@@ -115,7 +115,7 @@ The following channel configuration options are supported:
 1 for `/dev/spidevn.1`, ..., default 0
 - speedHz - a number representing the SPI clock frequency for reading from the
 channel in Hertz, see default clock frequency in
-[supported devices](https://github.com/fivdi/mcp-spi-adc#supported-devices)
+[supported devices](#supported-devices)
 
 ### adcChannel.read(cb)
 - cb - completion callback
@@ -125,7 +125,7 @@ reading). The reading argument is an object with the following properties:
 
 - value - the value read from the channel scaled to a value between 0 and 1
 - rawValue - the value read from the channel, see raw value range in
-[supported devices](https://github.com/fivdi/mcp-spi-adc#supported-devices)
+[supported devices](#supported-devices)
 
 Returns this.
 
