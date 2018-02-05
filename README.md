@@ -19,6 +19,11 @@ mcp-spi-adc supports Node.js versions 0.10, 0.12, 4, 5, 6, 7, 8 and 9.
 npm install mcp-spi-adc
 ```
 
+In order to use mcp-spi-adc SPI must be enabled. How SPI is enabled varies
+from board to board. For example, on the Raspberry Pi the raspi-config tool
+can be used enable SPI. On the BeagleBone Black the config-pin utility can be
+used.
+
 ## Usage
 
 Determine the temperature using a TMP36 analog temperature sensor wired to
