@@ -2,6 +2,7 @@ Unpublished
 ===========
 
  * document node 9 support
+ * update dependencies (spi-device v2.0.0)
 
 1.0.0 / Oct 14 2017
 ===================
