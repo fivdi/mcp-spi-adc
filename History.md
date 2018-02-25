@@ -3,6 +3,7 @@ Unpublished
 
  * document node 9 support
  * update dependencies (spi-device v2.0.0)
+ * drop support for node.js v0.10, v0.12, v5 and v7
 
 1.0.0 / Oct 14 2017
 ===================
