@@ -10,8 +10,8 @@ mcp-spi-adc supports Node.js versions 4, 6, 8 and 9.
 
  * [Installation](#installation)
  * [Usage](#usage)
- * [Supported devices](#supported-devices)
- * [API documentation](#api-documentation)
+ * [Supported Devices](#supported-devices)
+ * [API Documentation](#api-documentation)
 
 ## Installation
 
@@ -59,7 +59,7 @@ The maximum sampling rate at VDD = 2.7V is 75 ksps and each sample requires
 an 18-bit transfer. 75000 x 18 = 1350000. 1350000Hz is a conservative frequency
 in the above circuit as VDD is 3.3V.
 
-## Supported devices
+## Supported Devices
 
 Device | Channels | Channel Numbers | Default Clock Frequency | Resolution | Raw Value Range
 :---: | ---: | ---: | ---: | ---: | ---:
@@ -71,7 +71,7 @@ MCP3204 | 4 | 0-3 | 1000000Hz | 12-bit | 0-4095
 MCP3208 | 8 | 0-7 | 1000000Hz | 12-bit | 0-4095
 MCP3304 | 8 | 0-7 | 1050000Hz | 13-bit | 0-4095
 
-## API documentation
+## API Documentation
 
 All methods are asynchronous and take a completion callback as their last
 argument. The arguments passed to the completion callback depend on the
