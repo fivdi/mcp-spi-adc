@@ -18,7 +18,7 @@
     "node": ">=4.0.0"
   },
   "dependencies": {
-    "spi-device": "^2.0.0",
+    "spi-device": "^2.0.1",
     "lodash": "^4.17.4"
   },
   "keywords": [
