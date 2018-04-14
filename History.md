@@ -1,3 +1,8 @@
+Unpublished
+===========
+
+ * update dependencies (spi-device v2.0.2, lodash v4.17.5)
+
 2.0.1 / Apr 07 2018
 ===================
 
