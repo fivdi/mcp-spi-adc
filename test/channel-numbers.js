@@ -1,9 +1,9 @@
 'use strict';
 
-var mcpadc = require('../'),
-  assert = require('assert');
+const mcpadc = require('../');
+const assert = require('assert');
 
-var channels = [
+const channels = [
   // ok
   0,
   7,
@@ -18,7 +18,7 @@ var channels = [
   '4',
   [],
   {},
-  function () {},
+  () => {},
   true,
   false,
   3.142,
@@ -26,15 +26,15 @@ var channels = [
   Infinity
 ];
 
-channels.forEach(function (channel) {
+channels.forEach((channel) => {
   try {
-    var sensor = mcpadc.open(channel, {}, function (err) {
+    const sensor = mcpadc.open(channel, {}, (err) => {
       assert(!err, 'can\'t open sensor');
       assert(channel >= 0 && channel <= 7 , 'invalid channel opened');
 
       console.log('  channel: ' + channel);
 
-      sensor.close(function (err) {
+      sensor.close((err) => {
         assert(!err, 'can\'t close sensor');
       });
     });

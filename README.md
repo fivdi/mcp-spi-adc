@@ -32,9 +32,9 @@ channel 5 on an MCP3008 SPI A/D converter.
 <img src="https://raw.githubusercontent.com/fivdi/mcp-spi-adc/master/example/pi-mcp3008-tmp36.png">
 
 ```js
-var mcpadc = require('mcp-spi-adc');
+const mcpadc = require('mcp-spi-adc');
 
-var tempSensor = mcpadc.open(5, {speedHz: 20000}, function (err) {
+const tempSensor = mcpadc.open(5, {speedHz: 20000}, function (err) {
   if (err) throw err;
 
   setInterval(function () {

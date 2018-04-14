@@ -1,39 +1,44 @@
 'use strict';
 
-var mcpadc = require('../../'),
-  assert = require('assert'),
-  tempReading,
-  tempCount = 0,
-  voltageReading,
-  voltageCount = 0;
+const mcpadc = require('../../');
+const assert = require('assert');
 
-var tempSensor = mcpadc.open(5, {speedHz: 20000}, function (err) {
+let tempReading;
+let tempCount = 0;
+let voltageReading;
+let voltageCount = 0;
+
+const tempSensor = mcpadc.open(5, {speedHz: 20000}, (err) => {
   assert(!err, 'can\'t open temp sensor');
 
-  (function next() {
-    tempSensor.read(function (err, reading) {
+  const next = () => {
+    tempSensor.read((err, reading) => {
       assert(!err, 'can\'t read temp sensor');
       tempReading = reading;
       tempCount += 1;
       next();
     });
-  })();
+  };
+
+  next();
 });
 
-var voltageSensor = mcpadc.open(4, function (err) {
+const voltageSensor = mcpadc.open(4, (err) => {
   assert(!err, 'can\'t open voltage sensor');
 
-  (function next() {
-    voltageSensor.read(function (err, reading) {
+  const next = () => {
+    voltageSensor.read((err, reading) => {
       assert(!err, 'can\'t read voltage sensor');
       voltageReading = reading;
       voltageCount += 1;
       next();
     });
-  })();
+  };
+
+  next();
 });
 
-setInterval(function () {
+setInterval(() => {
   console.log(
     'tc: ' + tempCount +
     ', t: ' + ((tempReading.value * 3.3 - 0.5) * 100) +

@@ -1,8 +1,8 @@
 'use strict';
 
-var mcpadc = require('../');
+const mcpadc = require('../');
 
-var tempSensor = mcpadc.open(5, {speedHz: 20000}, function (err) {
+const tempSensor = mcpadc.open(5, {speedHz: 20000}, function (err) {
   if (err) throw err;
 
   setInterval(function () {
