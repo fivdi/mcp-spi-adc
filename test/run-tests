@@ -1,6 +1,8 @@
 #!/bin/sh
-echo open-read-close
-node open-read-close
 echo channel-numbers
 node channel-numbers
+echo open-read-close
+node open-read-close
+echo open-read-close-all-chip-types
+node open-read-close-all-chip-types
 
