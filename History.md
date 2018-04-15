@@ -1,7 +1,7 @@
-Unpublished
-===========
+2.0.2 / Apr 15 2018
+===================
 
- * update dependencies (spi-device v2.0.2, lodash v4.17.5)
+ * update dependencies (spi-device v2.0.2, lodash.clone v4.5.0)
  * code style
  * add test to call open, read and close for all supported chips
 
