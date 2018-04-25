@@ -4,7 +4,7 @@ MCP3002/4/8, MCP3202/4/8 and MCP3304 SPI analog to digital conversion with
 **Node.js** on Linux boards like the Raspberry Pi Zero, 1, 2, or 3 or
 BeagleBone Black.
 
-mcp-spi-adc supports Node.js versions 4, 6, 8 and 9.
+mcp-spi-adc supports Node.js versions 4, 6, 8 and 10.
 
 ## Contents
 
