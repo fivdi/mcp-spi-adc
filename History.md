@@ -1,5 +1,5 @@
-Unpublished
-===========
+2.0.3 / Jul 28 2018
+===================
 
  * update dependencies (spi-device v2.0.3)
  * code style
