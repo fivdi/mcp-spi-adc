@@ -2,6 +2,7 @@ Unpublished
 ===========
 
  * update dependencies (spi-device v2.0.3)
+ * code style
 
 2.0.2 / Apr 15 2018
 ===================

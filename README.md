@@ -34,11 +34,11 @@ channel 5 on an MCP3008 SPI A/D converter.
 ```js
 const mcpadc = require('mcp-spi-adc');
 
-const tempSensor = mcpadc.open(5, {speedHz: 20000}, function (err) {
+const tempSensor = mcpadc.open(5, {speedHz: 20000}, (err) => {
   if (err) throw err;
 
-  setInterval(function () {
-    tempSensor.read(function (err, reading) {
+  setInterval(() => {
+    tempSensor.read((err, reading) => {
       if (err) throw err;
 
       console.log((reading.value * 3.3 - 0.5) * 100);
