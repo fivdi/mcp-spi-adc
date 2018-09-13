@@ -127,6 +127,19 @@ class AdcChannel {
     return this;
   }
 
+  willRead() {
+    return new Promise((resolve, reject) => {
+
+      read((err, data) => {
+        if (err) {
+          reject(err);
+        }
+
+        resolve(data);
+      });
+    });
+  };
+
   close(cb) {
     this._device.close(cb);
     return null;
@@ -146,6 +159,12 @@ module.exports.openMcp3008 = (channel, options, cb) => {
 };
 module.exports.open = module.exports.openMcp3008;
 
+module.exports.willOpen = (channel, options) => {
+  return new Promise((resolve, reject) => {
+    resolve(new AdcChannel(CONFIG_MCP3008, channel, options, () => {}));
+  });
+};
+
 module.exports.openMcp3202 = (channel, options, cb) => {
   return new AdcChannel(CONFIG_MCP3202, channel, options, cb);
 };
@@ -161,4 +180,3 @@ module.exports.openMcp3208 = (channel, options, cb) => {
 module.exports.openMcp3304 = (channel, options, cb) => {
   return new AdcChannel(CONFIG_MCP3304, channel, options, cb);
 };
-
