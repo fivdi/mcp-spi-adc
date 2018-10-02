@@ -18,7 +18,7 @@
     "node": ">=4.0.0"
   },
   "dependencies": {
-    "spi-device": "^2.0.3",
+    "spi-device": "^2.0.4",
     "lodash.clone": "^4.5.0"
   },
   "keywords": [

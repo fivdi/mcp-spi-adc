@@ -1,3 +1,8 @@
+Unpublished
+===========
+
+ * update dependencies (spi-device v2.0.4)
+
 2.0.3 / Jul 28 2018
 ===================
 
