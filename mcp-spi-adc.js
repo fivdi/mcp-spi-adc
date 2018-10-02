@@ -8,12 +8,9 @@ const CONFIG_MCP3008 = Object.freeze({
   maxRawValue: 1023,
   defaultSpeedHz: 1350000, // See MCP3008 datasheet. 75000 * 18 = 1350000.
   transferLength: 3,
-  readChannelCommand: (channel) => {
-    return Buffer.from([0x01, 0x80 + (channel << 4), 0x00]);
-  },
-  rawValue: (buffer) => {
-    return ((buffer[1] & 0x03) << 8) + buffer[2];
-  }
+  readChannelCommand: (channel) =>
+    Buffer.from([0x01, 0x80 + (channel << 4), 0x00]),
+  rawValue: (buffer) => ((buffer[1] & 0x03) << 8) + buffer[2]
 });
 
 const CONFIG_MCP3004 = clone(CONFIG_MCP3008);
@@ -25,12 +22,9 @@ const CONFIG_MCP3002 = Object.freeze({
   maxRawValue: 1023,
   defaultSpeedHz: 1200000, // See MCP3002 datasheet. 75000 * 16 = 1200000.
   transferLength: 2,
-  readChannelCommand: (channel) => {
-    return Buffer.from([0x68 + (channel << 4), 0x00]);
-  },
-  rawValue: (buffer) => {
-    return ((buffer[0] & 0x03) << 8) + buffer[1];
-  }
+  readChannelCommand: (channel) =>
+    Buffer.from([0x68 + (channel << 4), 0x00]),
+  rawValue: (buffer) => ((buffer[0] & 0x03) << 8) + buffer[1]
 });
 
 const CONFIG_MCP3208 = Object.freeze({
@@ -38,12 +32,9 @@ const CONFIG_MCP3208 = Object.freeze({
   maxRawValue: 4095,
   defaultSpeedHz: 1000000, // See MCP3208 datasheet. 50000 * 20 = 1000000.
   transferLength: 3,
-  readChannelCommand: (channel) => {
-    return Buffer.from([0x06 + (channel >> 2), (channel & 0x03) << 6, 0x00]);
-  },
-  rawValue: (buffer) => {
-    return ((buffer[1] & 0x0f) << 8) + buffer[2];
-  }
+  readChannelCommand: (channel) =>
+    Buffer.from([0x06 + (channel >> 2), (channel & 0x03) << 6, 0x00]),
+  rawValue: (buffer) => ((buffer[1] & 0x0f) << 8) + buffer[2]
 });
 
 const CONFIG_MCP3204 = clone(CONFIG_MCP3208);
@@ -55,12 +46,9 @@ const CONFIG_MCP3202 = Object.freeze({
   maxRawValue: 4095,
   defaultSpeedHz: 900000, // See MCP3202 datasheet. 50000 * 18 = 900000.
   transferLength: 3,
-  readChannelCommand: (channel) => {
-    return Buffer.from([0x01, 0xa0 + (channel << 6), 0x00]);
-  },
-  rawValue: (buffer) => {
-    return ((buffer[1] & 0x0f) << 8) + buffer[2];
-  }
+  readChannelCommand: (channel) =>
+    Buffer.from([0x01, 0xa0 + (channel << 6), 0x00]),
+  rawValue: (buffer) => ((buffer[1] & 0x0f) << 8) + buffer[2]
 });
 
 const CONFIG_MCP3304 = Object.freeze({
@@ -68,12 +56,9 @@ const CONFIG_MCP3304 = Object.freeze({
   maxRawValue: 4095,
   defaultSpeedHz: 1050000, // See MCP3304 datasheet. 50000 * 21 = 1050000
   transferLength: 3,
-  readChannelCommand: (channel) => {
-    return Buffer.from([0x0c + (channel >> 1), (channel & 0x01) << 7, 0x00]);
-  },
-  rawValue: (buffer) => {
-    return ((buffer[1] & 0x0f) << 8) + buffer[2];
-  }
+  readChannelCommand: (channel) =>
+    Buffer.from([0x0c + (channel >> 1), (channel & 0x01) << 7, 0x00]),
+  rawValue: (buffer) => ((buffer[1] & 0x0f) << 8) + buffer[2]
 });
 
 class AdcChannel {
@@ -133,32 +118,25 @@ class AdcChannel {
   }
 }
 
-module.exports.openMcp3002 = (channel, options, cb) => {
-  return new AdcChannel(CONFIG_MCP3002, channel, options, cb);
-};
+module.exports.openMcp3002 = (channel, options, cb) =>
+  new AdcChannel(CONFIG_MCP3002, channel, options, cb);
 
-module.exports.openMcp3004 = (channel, options, cb) => {
-  return new AdcChannel(CONFIG_MCP3004, channel, options, cb);
-};
+module.exports.openMcp3004 = (channel, options, cb) =>
+  new AdcChannel(CONFIG_MCP3004, channel, options, cb);
 
-module.exports.openMcp3008 = (channel, options, cb) => {
-  return new AdcChannel(CONFIG_MCP3008, channel, options, cb);
-};
+module.exports.openMcp3008 = (channel, options, cb) =>
+  new AdcChannel(CONFIG_MCP3008, channel, options, cb);
 module.exports.open = module.exports.openMcp3008;
 
-module.exports.openMcp3202 = (channel, options, cb) => {
-  return new AdcChannel(CONFIG_MCP3202, channel, options, cb);
-};
+module.exports.openMcp3202 = (channel, options, cb) =>
+  new AdcChannel(CONFIG_MCP3202, channel, options, cb);
 
-module.exports.openMcp3204 = (channel, options, cb) => {
-  return new AdcChannel(CONFIG_MCP3204, channel, options, cb);
-};
+module.exports.openMcp3204 = (channel, options, cb) =>
+  new AdcChannel(CONFIG_MCP3204, channel, options, cb);
 
-module.exports.openMcp3208 = (channel, options, cb) => {
-  return new AdcChannel(CONFIG_MCP3208, channel, options, cb);
-};
+module.exports.openMcp3208 = (channel, options, cb) =>
+  new AdcChannel(CONFIG_MCP3208, channel, options, cb);
 
-module.exports.openMcp3304 = (channel, options, cb) => {
-  return new AdcChannel(CONFIG_MCP3304, channel, options, cb);
-};
+module.exports.openMcp3304 = (channel, options, cb) =>
+  new AdcChannel(CONFIG_MCP3304, channel, options, cb);
 
