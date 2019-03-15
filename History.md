@@ -5,6 +5,7 @@ Unpublished
  * document node 12 support
  * lint with jshint
  * add travis build
+ * add badges
 
 2.0.4 / Oct 02 2018
 ===================

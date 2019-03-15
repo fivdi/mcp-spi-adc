@@ -1,3 +1,7 @@
+[![Build Status](https://travis-ci.org/fivdi/mcp-spi-adc.svg?branch=master)](https://travis-ci.org/fivdi/mcp-spi-adc)
+[![npm Version](http://img.shields.io/npm/v/mcp-spi-adc.svg)](https://www.npmjs.com/package/mcp-spi-adc)
+[![Downloads Per Month](http://img.shields.io/npm/dm/mcp-spi-adc.svg)](https://www.npmjs.com/package/mcp-spi-adc)
+
 # mcp-spi-adc
 
 MCP3002/4/8, MCP3202/4/8 and MCP3304 SPI analog to digital conversion with
