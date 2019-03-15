@@ -3,6 +3,7 @@ Unpublished
 
  * update dependencies (spi-device v2.0.7)
  * document node 12 support
+ * lint with jshint
 
 2.0.4 / Oct 02 2018
 ===================

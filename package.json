@@ -8,7 +8,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Tests can only be run manually from the command line.\" && exit 1"
+    "lint": "jshint *.js example/*.js test/*.js test/*/*.js",
+    "test": "cd test && ./run-tests && cd .."
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,9 @@
   "dependencies": {
     "spi-device": "^2.0.7",
     "lodash.clone": "^4.5.0"
+  },
+  "devDependencies": {
+    "jshint": "^2.10.2"
   },
   "keywords": [
     "linux",
@@ -41,4 +45,3 @@
   "author": "fivdi",
   "license": "MIT"
 }
-
