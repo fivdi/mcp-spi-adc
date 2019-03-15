@@ -1,5 +1,5 @@
-Unpublished
-===========
+2.0.5 / Mar 15 2019
+===================
 
  * update dependencies (spi-device v2.0.7)
  * document node 12 support
