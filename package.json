@@ -19,28 +19,29 @@
     "node": ">=4.0.0"
   },
   "dependencies": {
-    "spi-device": "^2.0.7",
+    "spi-device": "^2.0.8",
     "lodash.clone": "^4.5.0"
   },
   "devDependencies": {
     "jshint": "^2.10.2"
   },
   "keywords": [
-    "linux",
-    "beaglebone",
-    "pi",
-    "rpi",
-    "raspi",
-    "raspberry",
-    "spi",
-    "adc",
-    "mcp3304",
+    "mcp3008",
+    "mcp3004",
+    "mcp3002",
     "mcp3208",
     "mcp3204",
     "mcp3202",
-    "mcp3008",
-    "mcp3004",
-    "mcp3002"
+    "mcp3304",
+    "spi",
+    "adc",
+    "iot",
+    "raspberry",
+    "raspi",
+    "rpi",
+    "pi",
+    "beaglebone",
+    "linux"
   ],
   "author": "fivdi",
   "license": "MIT"
