@@ -1,3 +1,10 @@
+2.0.6 / Jun 16 2019
+===================
+
+  * remove node 11 from build
+  * update dependencies
+  * update npm keywords
+
 2.0.5 / Mar 15 2019
 ===================
 
