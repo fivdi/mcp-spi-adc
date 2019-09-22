@@ -18,7 +18,7 @@ const channels = [
   '4',
   [],
   {},
-  () => {},
+  _ => {},
   true,
   false,
   3.142,
@@ -26,15 +26,15 @@ const channels = [
   Infinity
 ];
 
-channels.forEach((channel) => {
+channels.forEach(channel => {
   try {
-    const sensor = mcpadc.open(channel, {}, (err) => {
+    const sensor = mcpadc.open(channel, {}, err => {
       assert(!err, 'can\'t open sensor');
       assert(channel >= 0 && channel <= 7 , 'invalid channel opened');
 
       console.log('  channel: ' + channel);
 
-      sensor.close((err) => {
+      sensor.close(err => {
         assert(!err, 'can\'t close sensor');
       });
     });

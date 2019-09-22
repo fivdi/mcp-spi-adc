@@ -17,13 +17,13 @@ const openFuncs = [
   mcpadc.openMcp3304
 ];
 
-openFuncs.forEach((openFunc) => {
-  const sensor = openFunc(0, {busNumber: 0, deviceNumber: 1}, (err) => {
+openFuncs.forEach(openFunc => {
+  const sensor = openFunc(0, {busNumber: 0, deviceNumber: 1}, err => {
     assert(!err, 'can\'t open sensor');
     sensor.read((err, reading) => {
       assert(!err, 'can\'t read sensor');
       console.log(reading.rawValue + ' / ' + reading.value);
-      sensor.close((err) => {
+      sensor.close(err => {
         assert(!err, 'can\'t close sensor');
       });
     });

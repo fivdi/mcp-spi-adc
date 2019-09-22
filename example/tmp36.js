@@ -2,12 +2,12 @@
 
 const mcpadc = require('../');
 
-const tempSensor = mcpadc.open(5, {speedHz: 20000}, (err) => {
+const tempSensor = mcpadc.open(5, {speedHz: 20000}, err => {
   if (err) {
     throw err;
   }
 
-  setInterval(() => {
+  setInterval(_ => {
     tempSensor.read((err, reading) => {
       if (err) {
         throw err;
