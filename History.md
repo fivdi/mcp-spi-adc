@@ -2,6 +2,7 @@ Unpublished
 ===========
 
  * update dependencies (spi-device v3.0.0)
+ * drop support for node.js v4
 
 2.0.7 / Sep 07 2019
 ===================
