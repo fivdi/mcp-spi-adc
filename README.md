@@ -141,6 +141,6 @@ Returns this.
 ### adcChannel.close(cb)
 - cb - completion callback
 
-Asynchronous close. The completion callback gets one argument (err). Returns
-null.
+Asynchronous close. Frees system resources used by this instance. The
+completion callback gets one argument (err). Returns null.
 
