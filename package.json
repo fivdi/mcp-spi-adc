@@ -16,14 +16,14 @@
     "url": "https://github.com/fivdi/mcp-spi-adc.git"
   },
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=8.0.0"
   },
   "dependencies": {
-    "spi-device": "^3.0.0",
+    "spi-device": "^3.1.0",
     "lodash.clone": "^4.5.0"
   },
   "devDependencies": {
-    "jshint": "^2.10.2"
+    "jshint": "^2.11.0"
   },
   "keywords": [
     "mcp3008",
