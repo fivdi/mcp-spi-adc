@@ -19,11 +19,11 @@
     "node": ">=6.0.0"
   },
   "dependencies": {
-    "spi-device": "^3.0.0",
+    "spi-device": "^3.1.0",
     "lodash.clone": "^4.5.0"
   },
   "devDependencies": {
-    "jshint": "^2.10.2"
+    "jshint": "^2.11.0"
   },
   "keywords": [
     "mcp3008",
