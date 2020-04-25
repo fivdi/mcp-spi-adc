@@ -2,6 +2,7 @@ Unpublished
 ===========
 
  * update dependencies (spi-device v3.1.0, jshint v2.11.0)
+ * drop support for node.js 6, add support for node.js 14
 
 3.0.0 / Sep 22 2019
 ===================

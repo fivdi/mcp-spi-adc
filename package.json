@@ -16,7 +16,7 @@
     "url": "https://github.com/fivdi/mcp-spi-adc.git"
   },
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=8.0.0"
   },
   "dependencies": {
     "spi-device": "^3.1.0",
