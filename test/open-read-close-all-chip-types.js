@@ -11,6 +11,7 @@ const openFuncs = [
   mcpadc.openMcp3002,
   mcpadc.openMcp3004,
   mcpadc.openMcp3008,
+  mcpadc.openMcp3201,
   mcpadc.openMcp3202,
   mcpadc.openMcp3204,
   mcpadc.openMcp3208,

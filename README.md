@@ -4,7 +4,7 @@
 
 # mcp-spi-adc
 
-MCP3002/4/8, MCP3202/4/8 and MCP3304 SPI analog to digital conversion with
+MCP3002/4/8, MCP3201/2/4/8 and MCP3304 SPI analog to digital conversion with
 **Node.js** on Linux boards like the Raspberry Pi or BeagleBone.
 
 mcp-spi-adc supports Node.js versions 10, 12, 14, 15 and 16.
@@ -69,6 +69,7 @@ Device | Channels | Channel Numbers | Default Clock Frequency | Resolution | Raw
 MCP3002 | 2 | 0-1 | 1200000Hz | 10-bit | 0-1023
 MCP3004 | 4 | 0-3 | 1350000Hz | 10-bit | 0-1023
 MCP3008 | 8 | 0-7 | 1350000Hz | 10-bit | 0-1023
+MCP3201 | 1 | 0 | 800000Hz | 12-bit | 0-4095
 MCP3202 | 2 | 0-1 | 900000Hz | 12-bit | 0-4095
 MCP3204 | 4 | 0-3 | 1000000Hz | 12-bit | 0-4095
 MCP3208 | 8 | 0-7 | 1000000Hz | 12-bit | 0-4095
@@ -87,6 +88,7 @@ or undefined.
 - [openMcp3002(channel[, options], cb)](#openmcp3002channel-options-cb)
 - [openMcp3004(channel[, options], cb)](#openmcp3004channel-options-cb)
 - [openMcp3008(channel[, options], cb)](#openmcp3008channel-options-cb)
+- [openMcp3201(channel[, options], cb)](#openmcp3201channel-options-cb)
 - [openMcp3202(channel[, options], cb)](#openmcp3202channel-options-cb)
 - [openMcp3204(channel[, options], cb)](#openmcp3204channel-options-cb)
 - [openMcp3208(channel[, options], cb)](#openmcp3208channel-options-cb)
@@ -101,6 +103,7 @@ or undefined.
 ### openMcp3002(channel[, options], cb)
 ### openMcp3004(channel[, options], cb)
 ### openMcp3008(channel[, options], cb)
+### openMcp3201(channel[, options], cb)
 ### openMcp3202(channel[, options], cb)
 ### openMcp3204(channel[, options], cb)
 ### openMcp3208(channel[, options], cb)

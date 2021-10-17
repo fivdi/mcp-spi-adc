@@ -51,6 +51,16 @@ const CONFIG_MCP3202 = Object.freeze({
   rawValue: buffer => ((buffer[1] & 0x0f) << 8) + buffer[2]
 });
 
+const CONFIG_MCP3201 = Object.freeze({
+  channelCount: 1,
+  maxRawValue: 4095,
+  defaultSpeedHz: 800000, // See MCP3201 datasheet. 50000 * 16 = 800000.
+  transferLength: 2,
+  readChannelCommand: channel =>
+    Buffer.from([0x00, 0x00]),
+  rawValue: buffer => ((buffer[0] & 0x1f) << 7) + (buffer[1] >> 1)
+});
+
 const CONFIG_MCP3304 = Object.freeze({
   channelCount: 8,
   maxRawValue: 4095,
@@ -127,6 +137,9 @@ module.exports.openMcp3004 = (channel, options, cb) =>
 module.exports.openMcp3008 = (channel, options, cb) =>
   new AdcChannel(CONFIG_MCP3008, channel, options, cb);
 module.exports.open = module.exports.openMcp3008;
+
+module.exports.openMcp3201 = (channel, options, cb) =>
+  new AdcChannel(CONFIG_MCP3201, channel, options, cb);
 
 module.exports.openMcp3202 = (channel, options, cb) =>
   new AdcChannel(CONFIG_MCP3202, channel, options, cb);
